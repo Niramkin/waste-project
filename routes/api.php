@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\api\auth\LoginController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\api\auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,8 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('/user')->group(function(){
-
+Route::prefix('/user')->group(function () {
     route::post('/login', [LoginController::class, 'loginUser']);
-
+    route::post('/register', [RegisterController::class, 'register']);
 })->middleware('auth:api');
